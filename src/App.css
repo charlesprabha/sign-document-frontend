@@ -1,0 +1,372 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+/* ===== Layout ===== */
+
+.app {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.app-header h1 {
+  margin: 0 0 6px;
+  line-height: 1.2;
+  font-size: 2.4rem;
+}
+
+.app-header p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* ===== Progress bar ===== */
+
+.progress-bar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.progress-segment {
+  flex: 1;
+  text-align: center;
+  padding: 10px 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #999;
+  background: #e5e7eb;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.progress-segment.progress-done {
+  background: #bfdbfe;
+  color: #1e3a8a;
+}
+
+.progress-segment.progress-active {
+  background: #2563eb;
+  color: white;
+}
+
+/* ===== Wizard card ===== */
+
+.wizard-card {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.step-panel h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/* ===== Upload row ===== */
+
+.upload-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.file-input-label {
+  background: #eef1f8;
+  border: 1px solid #d7dcea;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.file-input-label:hover {
+  background: #e2e6f2;
+}
+
+.file-input-hidden {
+  display: none;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  color: #444;
+  word-break: break-all;
+}
+
+/* ===== Buttons ===== */
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 6px;
+  padding: 11px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #2563eb;
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-success {
+  background: #16a34a;
+}
+.btn-success:hover {
+  background: #15803d;
+}
+
+.btn-download {
+  background: #ff9f1c;
+}
+.btn-download:hover {
+  background: #e08900;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #222;
+}
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+
+.start-over-btn {
+  display: block;
+  margin: 18px auto 0;
+}
+
+/* ===== Message ===== */
+
+.message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #eef2ff;
+  text-align: center;
+}
+
+/* ===== PDF preview ===== */
+
+.pdf-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+.pdf-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pdf-viewer h2 {
+  margin-bottom: 20px;
+}
+
+.pdf-viewer > div {
+  max-width: 100%;
+}
+
+.pdf-viewer canvas {
+  display: block;
+  max-width: 100%;
+  height: auto !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.resize-handle {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  width: 14px;
+  height: 14px;
+  background: #2563eb;
+  border: 2px solid white;
+  border-radius: 3px;
+  cursor: nwse-resize;
+  touch-action: none;
+}
+
+.signature-box-draggable {
+  touch-action: none;
+}
+
+/* ===== Signature pad ===== */
+
+.signature-mode-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.mode-btn {
+  border: 1px solid #d7dcea;
+  background: white;
+  color: #444;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.mode-btn-active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.signature-box {
+  display: flex;
+  justify-content: center;
+}
+
+.signature-canvas {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  touch-action: none;
+}
+
+.signature-buttons {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.signature-upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border: 1px dashed #d7dcea;
+  border-radius: 8px;
+}
+
+.upload-hint {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+  text-align: center;
+}
+
+.upload-processing {
+  font-size: 0.85rem;
+  color: #2563eb;
+  margin: 0;
+}
+
+.upload-error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.uploaded-signature-preview {
+  max-width: 250px;
+}
+
+.uploaded-signature-preview img {
+  max-width: 100%;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 6px;
+  background: white;
+}
+
+.checkerboard {
+  background-image:
+    linear-gradient(45deg, #ddd 25%, transparent 25%),
+    linear-gradient(-45deg, #ddd 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ddd 75%),
+    linear-gradient(-45deg, transparent 75%, #ddd 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+.action-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .app {
+    padding: 24px 14px 40px;
+  }
+
+  .wizard-card {
+    padding: 20px;
+  }
+
+  .progress-segment {
+    font-size: 0.7rem;
+    padding: 8px 4px;
+  }
+}
+
+/* ===== Phone ===== */
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .upload-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn,
+  .file-input-label {
+    width: 100%;
+  }
+
+  .action-row {
+    flex-direction: column;
+  }
+}
