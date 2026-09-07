@@ -36,7 +36,7 @@ function App() {
     const formData = new FormData()
     formData.append('file', file)
 
-    const uploadUrl = 'http://10.229.14.24:8080/api/documents/upload'
+    const uploadUrl = 'https://sign-document.onrender.com/api/documents/upload'
 
     console.log('Uploading to:', uploadUrl)
     setMessage('Trying: ' + uploadUrl)
@@ -94,7 +94,7 @@ function App() {
       formData.append('height', signaturePosition.height)
 
       const signResponse = await fetch(
-        `http://10.229.14.24:8080/api/documents/${documentId}/sign`,
+        `https://sign-document.onrender.com/api/documents/${documentId}/sign`,
         { method: 'POST', body: formData }
       )
 

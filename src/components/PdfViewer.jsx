@@ -34,7 +34,7 @@ function PdfViewer({ documentId, signature, onPositionChange }) {
   const containerRef = useRef(null)
 
   const pdfUrl =
-    `http://10.229.14.24:8080/api/documents/${documentId}`
+    `https://sign-document.onrender.com/api/documents/${documentId}`
 
   // Fit PDF to available width
   useEffect(() => {
